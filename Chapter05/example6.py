@@ -22,7 +22,9 @@ def process_requests(threads, timeout=5):
         return sum(alive)
 
     while alive_count() > 0 and timeout > 0:
+        print(alive_count())
         timeout -= UPDATE_INTERVAL
+        print('The timeout is:',timeout)
         time.sleep(UPDATE_INTERVAL)
     for thread in threads:
         print(thread.result)

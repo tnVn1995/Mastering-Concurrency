@@ -13,6 +13,7 @@ class MyThread(threading.Thread):
     def run(self):
         res = requests.get(self.url)
         self.result = f'{self.url}: {res.text}'
+        print(self.result)
 
 urls = [
     'http://httpstat.us/200',
@@ -30,8 +31,9 @@ for thread in threads:
     thread.start()
 for thread in threads:
     thread.join()
-for thread in threads:
-    print(thread.result)
+print('Just checking!')
+# for thread in threads:
+#     print(thread.result)
 
 print(f'Took {time.time() - start : .2f} seconds')
 
